@@ -12,11 +12,9 @@ export interface IToDo {
   category: string;
 }
 
-export const defaultCategories = [Categories.TO_DO, Categories.DOING, Categories.DONE]
-
 export const CategoryList = atom<string[]>({
   key: "categoryList",
-  default: JSON.parse(localStorage.getItem("categories") ?? `${defaultCategories}`)
+  default: JSON.parse(localStorage.getItem("categories") ?? `[${Categories.TO_DO}, ${Categories.DOING}, ${Categories.DONE}]`)
 })
 
 export const toDoState = atom<IToDo[]>({
